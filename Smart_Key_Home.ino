@@ -80,7 +80,7 @@ void loop()
           //Serial.println(pos);
         } 
         delay(6000);
-        data_count = 0;
+        
         while(!(pos == 0))
         {
           myservo.write(pos);
@@ -88,11 +88,21 @@ void loop()
           pos = pos - 1;  
           //Serial.println(pos);
         } 
+        clearArray();
       }
     else{
       lcd.print("Incorrect");
       delay(1000);
+      clearArray();
      }
   }
     
+}
+
+void clearArray(){
+  data_count = 0;
+        for(int i=6;i!=0;i=i-1){
+              Data[i] = ""; 
+        }
+
 }
